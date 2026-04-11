@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>American AI — The AI Race Is Federal</title>
+  <meta name="description" content="American AI connects qualified AI companies with the federal market at the exact moment the White House AI Action Plan has directed agencies to buy. Intelligence. Government affairs. Insider access." />
+  <!-- OG / Social -->
+  <meta property="og:title" content="American AI — The AI Race Is Federal" />
+  <meta property="og:description" content="American AI connects qualified AI companies with the federal market at the exact moment the White House AI Action Plan has directed agencies to buy." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.americanai.capital" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23012169'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-size='13' font-weight='700' fill='white'%3EAI%3C/text%3E%3C/svg%3E" />
+  <!-- Fonts: Instrument Sans + Instrument Serif + Outfit (matching ai.gov) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Instrument+Serif:ital,wght@0,400;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Latin Modern Roman (Computer Modern Serif) — matching Standard Capital logo style -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern/cmu-serif.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ── BASE ── */
+    :root {
+      --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-display: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+      --color-primary: #012169;
+      --color-primary-hover: #01348f;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: #fff; color: #1e242f; font-size: 16px; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+    .font-cmr  { font-family: var(--font-sans); }
+    .font-mono { font-family: var(--font-display); }
+
+    /* ── PROSE ── */
+    .prose { font-family: var(--font-sans); font-size: 1rem; line-height: 1.75; color: #1e242f; }
+    .prose h1 { font-family: var(--font-display); font-size: clamp(1.6rem,3.5vw,2.2rem); font-weight: 700; margin-top: 0.5rem; margin-bottom: 1rem; line-height: 1.2; }
+    .prose h2 { font-family: var(--font-display); font-size: clamp(1.25rem,2.5vw,1.6rem); font-weight: 600; margin-top: 2.5rem; margin-bottom: 0.6rem; border-top: 1px solid #e5e7eb; padding-top: 1.5rem; line-height: 1.3; }
+    .prose h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-top: 1.8rem; margin-bottom: 0.4rem; }
+    .prose p { margin-top: 0.75rem; margin-bottom: 0.75rem; }
+    .prose ul { list-style: disc; padding-left: 1.6rem; margin: 0.75rem 0; }
+    .prose ol { list-style: decimal; padding-left: 1.6rem; margin: 0.75rem 0; }
+    .prose li { margin: 0.35rem 0; line-height: 1.7; }
+    .prose strong { font-weight: 700; }
+    .prose em { font-style: italic; }
+    .prose a { color: #012169; text-decoration: underline; text-underline-offset: 2px; }
+    .prose a:hover { color: #01348f; }
+    .prose blockquote { border-left: 3px solid #012169; padding-left: 1rem; margin-left: 0; color: #374151; font-style: italic; }
+    .latex-paper { background: #ffffff; }
+
+    /* ── MASONRY ── */
+    .masonry { columns: 1; column-gap: 1rem; }
+    @media (min-width: 768px) { .masonry { columns: 2; } }
+    @media (min-width: 1024px) { .masonry { columns: 3; } }
+
+    /* ── BUTTONS (ai.gov identity: Instrument Sans, bordered, clean) ── */
+    .apply-btn {
+      padding: 8px 22px;
+      background: transparent;
+      color: #012169;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 0.8125rem;
+      border: 1.5px solid #012169;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+    .apply-btn:hover { background: #012169; color: #fff; }
+
+    /* ── CARD ── */
+    .card-lift { transition: box-shadow 0.2s ease, transform 0.2s ease; }
+    .card-lift:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); transform: translateY(-2px); }
+
+    /* ── FADE IN ── */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .stagger-children .fade-in:nth-child(1) { transition-delay: 0s; }
+    .stagger-children .fade-in:nth-child(2) { transition-delay: 0.08s; }
+    .stagger-children .fade-in:nth-child(3) { transition-delay: 0.16s; }
+    .stagger-children .fade-in:nth-child(4) { transition-delay: 0.24s; }
+    .stagger-children .fade-in:nth-child(5) { transition-delay: 0.32s; }
+    .stagger-children .fade-in:nth-child(6) { transition-delay: 0.4s; }
+
+    /* ── MOBILE MENU ── */
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; }
+    #mobile-menu.open { max-height: 400px; opacity: 1; }
+
+    /* ── FAQ ACCORDION ── */
+    .faq-item { border-bottom: 1px solid #e5e7eb; }
+    .faq-item:first-child { border-top: 1px solid #e5e7eb; }
+    .faq-btn {
+      width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+      padding: 1rem 0; display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: #1e242f;
+      gap: 1rem;
+    }
+    .faq-btn:hover { color: #012169; }
+    .faq-chevron { flex-shrink: 0; transition: transform 0.25s ease; font-size: 1.1rem; color: #012169; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-body-inner { padding: 0 0 1rem; font-family: var(--font-sans); font-size: 1rem; line-height: 1.75; color: #374151; }
+    .faq-body-inner a { color: #012169; text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ── TEAM AVATAR ── */
+    .team-avatar {
+      width: 100px; height: 100px;
+      border-radius: 50%; object-fit: cover; object-position: center top;
+      border: 2px solid #e5e7eb;
+      margin: 0 auto 14px auto; display: block;
+    }
+
+    /* ── NAV LOGO (Latin Modern Roman / CMU Serif — matches Standard Capital) ── */
+    .nav-logo-link { text-decoration: none; display: inline-flex; align-items: center; }
+    .nav-logo-main {
+      font-family: "CMU Serif", "Computer Modern", Georgia, serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: #1e242f;
+      border: 1.5px solid #1e242f;
+      padding: 4px 12px;
+      line-height: 1.3;
+      display: inline-block;
+    }
+
+    /* ── HERO ── */
+    .hero-outer {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: clamp(2.5rem, 5vw, 4.5rem) 1.5rem clamp(1.75rem, 3.5vw, 3rem);
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .hero-title {
+      font-family: "CMU Serif", "Computer Modern", Georgia, serif;
+      font-size: clamp(2.25rem, 7vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: #1e242f;
+      margin: 0 0 0.3rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      font-style: italic;
+      color: #555;
+      margin: 0;
+    }
+    .hero-rule {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin: 1.5rem auto;
+      width: 100%;
+    }
+    .hero-names {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      gap: 0.5rem 0;
+    }
+    .hero-name-item { text-align: center; padding: 0 0.5rem; }
+    .hero-name { font-family: var(--font-sans); font-size: 0.9375rem; font-weight: 500; color: #1e242f; margin: 0; }
+    .hero-handle { font-family: var(--font-sans); font-size: 0.8125rem; color: #6b7280; margin: 0; }
+    @media (max-width: 400px) {
+      .hero-names {
+        grid-template-columns: 1fr;
+        max-width: 220px;
+        gap: 0.75rem 0;
+      }
+    }
+
+    /* ── SECTION MAX WIDTH (standardcap uses ~730px content width) ── */
+    .content-wrap { max-width: 730px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── ACTION PLAN ── */
+    .action-plan-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: clamp(3rem,5vw,5rem) clamp(1rem,3vw,2rem) clamp(2.5rem,4vw,4rem);
+      display: flex; flex-wrap: wrap; gap: clamp(2rem,4vw,4rem); align-items: flex-start;
+    }
+    .action-plan-text { flex: 1; min-width: min(100%, 280px); }
+    .action-plan-book { flex-shrink: 0; width: clamp(140px, 20vw, 260px); align-self: center; }
+    @media (max-width: 600px) { .action-plan-book { width: 140px; margin: 0 auto; } }
+
+    /* ── TABS ── */
+    .tab-panels { display: flex; flex-wrap: wrap; border: 1px solid #e5e7eb; border-top: none; }
+    .tab-img-panel { flex: 1; min-width: 200px; max-width: 380px; overflow: hidden; }
+    .tab-content-panel { flex: 2; min-width: 260px; padding: 2rem 2.5rem; background: #f9fafb; }
+    @media (max-width: 640px) {
+      .tab-img-panel { display: none; }
+      .tab-content-panel { padding: 1.25rem 1rem; min-width: 100%; }
+    }
+
+    /* ── FOOTER ── */
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr 1fr !important; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    /* ── QUOTE BANNER ── */
+    .quote-banner { background: #012169; overflow: hidden; width: 100%; padding: clamp(3rem,6vw,5rem) 2rem; }
+    .quote-banner-inner { max-width: 900px; margin: 0 auto; }
+    .quote-banner-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      margin: 0 0 1.25rem 0;
+      letter-spacing: -0.02em;
+    }
+    .quote-banner-text .highlight { color: rgba(255,255,255,0.85); }
+    .quote-banner-byline {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .prose h1 { font-size: 1.4rem; }
+      .prose h2 { font-size: 1.15rem; margin-top: 2rem; }
+    }
+  </style>
+</head>
+
+<body class="bg-white min-h-screen flex flex-col">
+
+  <!-- ── NAVIGATION ── -->
+  <nav class="bg-white sticky top-0 z-50 border-b border-gray-200">
+    <div class="h-16 flex items-center px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between w-full max-w-7xl mx-auto">
+        <a href="/" class="nav-logo-link">
+          <span class="nav-logo-main">American AI</span>
+        </a>
+        <!-- Desktop links -->
+        <div class="hidden sm:flex items-center gap-4">
+          <a href="#overview" class="font-cmr text-sm text-gray-600 hover:text-gray-900 transition-colors">Overview</a>
+          <a href="#faq" class="font-cmr text-sm text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
+          <a href="#network" class="font-cmr text-sm text-gray-600 hover:text-gray-900 transition-colors">Network</a>
+          <a href="#team" class="font-cmr text-sm text-gray-600 hover:text-gray-900 transition-colors">Team</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiosSjh1hCYIJ9gsaLkX35_jw_9svYpgXssHS0CXBWwCjbuQ/viewform" target="_blank" class="apply-btn">Apply Now</a>
+        </div>
+        <!-- Mobile hamburger -->
+        <button id="menu-toggle" class="sm:hidden text-gray-700 p-2 rounded focus:outline-none" aria-label="Open menu" aria-expanded="false">
+          <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu dropdown -->
+    <div id="mobile-menu" class="sm:hidden bg-white border-t border-gray-100">
+      <div class="px-4 py-3 flex flex-col gap-1">
+        <a href="#overview" class="font-cmr text-gray-700 hover:text-gray-900 py-2 transition-colors mobile-link">Overview</a>
+        <a href="#faq" class="font-cmr text-gray-700 hover:text-gray-900 py-2 transition-colors mobile-link">FAQ</a>
+        <a href="#network" class="font-cmr text-gray-700 hover:text-gray-900 py-2 transition-colors mobile-link">Network</a>
+        <a href="#team" class="font-cmr text-gray-700 hover:text-gray-900 py-2 transition-colors mobile-link">Team</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiosSjh1hCYIJ9gsaLkX35_jw_9svYpgXssHS0CXBWwCjbuQ/viewform" target="_blank" class="apply-btn inline-block mt-2 mb-1 text-center mobile-link">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── MAIN CONTENT ── -->
+  <div class="flex-grow flex flex-col">
+
+    <!-- Hero / Header -->
+    <div class="hero-outer fade-in">
+      <!-- Main title -->
+      <h1 class="hero-title">American AI</h1>
+      <p class="hero-tagline">The AI-native federal engagement firm.</p>
+
+      <hr class="hero-rule" />
+
+      <!-- Leadership names -->
+      <div class="hero-names">
+        <div class="hero-name-item">
+          <p class="hero-name"><a href="#team" style="color:#111; text-decoration:none;">Eli Morin</a></p>
+          <p class="hero-handle">Principal</p>
+        </div>
+        <div class="hero-name-item">
+          <p class="hero-name"><a href="#team" style="color:#111; text-decoration:none;">Matt Argall</a></p>
+          <p class="hero-handle">President</p>
+        </div>
+        <div class="hero-name-item">
+          <p class="hero-name"><a href="#contact" style="color:#111; text-decoration:none;">Zack Larson</a></p>
+          <p class="hero-handle">Federal Market Strategist</p>
+        </div>
+      </div>
+
+      <hr class="hero-rule" />
+
+      <!-- Presidential quote -->
+      <blockquote style="margin:0; padding:0; border:none; text-align:center;">
+        <p style="font-family:'Instrument Serif',Georgia,serif; font-size:clamp(1.1rem,2.5vw,1.35rem); font-style:italic; line-height:1.65; color:#1e242f; margin:0 0 0.6rem;">"Unquestioned and unchallenged global technological DOMINANCE."</p>
+        <footer style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.6875rem; letter-spacing:0.14em; text-transform:uppercase; color:#9ca3af; font-weight:500;">— President Donald J. Trump</footer>
+      </blockquote>
+
+      <div style="margin-top:2rem;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiosSjh1hCYIJ9gsaLkX35_jw_9svYpgXssHS0CXBWwCjbuQ/viewform" target="_blank" class="apply-btn">Apply Now</a>
+      </div>
+    </div>
+
+    <!-- Article body -->
+    <div class="latex-paper w-full border-t border-gray-100">
+      <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Alert box -->
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-8 prose max-w-none fade-in">
+          <p>The U.S. federal government spends <strong>$681B annually in contracts</strong> — with AI/ML the fastest-growing category at 40%+ YoY growth — and the White House AI Action Plan's 90+ directives are designed to accelerate that further. <strong>Applications are now open for American AI's Q2 2026 engagement cycle. The deadline to apply is April 21st, 2026 at 9:00 PM PT.</strong> American AI will respond to all on-time applicants by May 1st, 2026.</p>
+        </div>
+
+        <!-- Main article -->
+        <article class="prose max-w-none pb-16">
+
+          <h1 class="fade-in">Positioned to Win. A Federal Engagement Firm for the AI Era.</h1>
+
+          <p class="fade-in">The United States is in a race to achieve global dominance in artificial intelligence. The Administration has made the stakes explicit, the directive clear, and the policy architecture concrete. What remains is execution — and execution in the federal market requires more than a capable product.</p>
+
+          <p class="fade-in">Federal procurement is a structured system with specific intelligence requirements, relationship dependencies, and procurement timelines that operate independently of commercial market logic. Companies that enter without that infrastructure spend months — sometimes years — learning what qualified operators already know. The requirement was shaped before they arrived. The decision-maker had never heard their name. The window had already closed.</p>
+
+          <p class="fade-in">American AI was built to eliminate that disadvantage.</p>
+
+        </article>
+      </div>
+    </div>
+
+    <!-- ── AI ACTION PLAN CALLOUT ── -->
+    <div class="w-full fade-in border-t border-gray-200" style="background-color:#f9fafb; overflow:hidden;">
+      <div class="action-plan-inner">
+
+        <!-- Left: heading + text + button -->
+        <div class="action-plan-text">
+
+          <!-- Seal + "AI / Action Plan" heading block, overlapping exactly as ai.gov -->
+          <div style="position:relative; margin-bottom:2rem;">
+            <!-- Grey Presidential Seal: sits behind the AI text -->
+            <img src="https://cdn.prod.website-files.com/686ecd0062f779f2ba045e1b/6878201354c573e435a53dae_grey%20seal.png"
+                 loading="lazy" width="245" alt="Presidential Seal - Grey"
+                 style="display:block; opacity:1; position:relative; z-index:0;" />
+            <!-- "AI" huge text overlapping the seal with negative top margin -->
+            <p style="font-family:'Outfit',ui-sans-serif,system-ui,sans-serif; font-size:clamp(5.5rem,11vw,9rem); font-weight:700; line-height:0.85; color:#012169; margin:0; letter-spacing:-4px; margin-top:-3.5rem; position:relative; z-index:1;">AI</p>
+            <p style="font-family:'Outfit',ui-sans-serif,system-ui,sans-serif; font-size:1.4rem; font-weight:400; color:#012169; margin:0; letter-spacing:0.02em; position:relative; z-index:1;">Action Plan</p>
+          </div>
+
+          <!-- Body paragraph -->
+          <p style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:1rem; line-height:1.75; color:#012169; max-width:510px; margin-bottom:2rem;">
+            The United States is in a race to achieve global dominance in artificial intelligence. Whoever has the largest AI ecosystem will set the global standards and reap broad economic and security benefits. Under President Trump, our Nation will win, ushering in a new Golden Age of innovation, human flourishing, and technological achievement for the American people. America's AI Action Plan has three policy pillars – Accelerating Innovation, Building AI&nbsp;Infrastructure, and Leading International Diplomacy and Security.
+          </p>
+
+          <!-- SEE IT IN ACTION button with real ai.gov arrow -->
+          <a href="https://www.ai.gov/action-plan" target="_blank"
+             style="display:inline-flex; align-items:center; gap:0.75rem; padding:0.75rem 1.5rem; border:1.5px solid #012169; color:#012169; font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; background:transparent;"
+             onmouseover="this.style.background='#012169';this.style.color='#ffffff';this.querySelector('img').style.filter='invert(1)'"
+             onmouseout="this.style.background='transparent';this.style.color='#012169';this.querySelector('img').style.filter='none'">
+            SEE IT IN ACTION
+            <img src="https://cdn.prod.website-files.com/686ecd0062f779f2ba045e1b/686ecd0062f779f2ba046042_black-arrow-topright-vector.svg"
+                 width="13" height="13" alt="" />
+          </a>
+        </div>
+
+        <!-- Right: real AI Action Plan cover image -->
+        <div class="action-plan-book">
+          <a href="https://www.ai.gov/action-plan" target="_blank" style="display:block; transition:opacity 0.15s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+            <img src="https://cdn.prod.website-files.com/686ecd0062f779f2ba045e1b/688131302dea1bbeefb0f383_AI%20Action%20Plan%20Cover.png"
+                 loading="lazy"
+                 srcset="https://cdn.prod.website-files.com/686ecd0062f779f2ba045e1b/688131302dea1bbeefb0f383_AI%20Action%20Plan%20Cover-p-500.png 500w, https://cdn.prod.website-files.com/686ecd0062f779f2ba045e1b/688131302dea1bbeefb0f383_AI%20Action%20Plan%20Cover-p-800.png 800w, https://cdn.prod.website-files.com/686ecd0062f779f2ba045e1b/688131302dea1bbeefb0f383_AI%20Action%20Plan%20Cover.png 1224w"
+                 sizes="(max-width:600px) 100vw, 280px"
+                 alt="America's AI Action Plan Cover — click to read"
+                 style="width:100%; display:block; box-shadow:0 12px 40px rgba(0,0,0,0.2); border:2px solid #012169;" />
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── HOW WE'RE ADVANCING AI (tabs, styled to match ai.gov) ── -->
+    <div class="w-full" style="background-color:#f9fafb;">
+      <div style="max-width:1200px; margin:0 auto; padding:5rem 2rem;">
+
+        <!-- Section heading -->
+        <div style="text-align:center; margin-bottom:2.5rem;">
+          <h2 style="font-family:'Outfit',ui-sans-serif,system-ui,sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:600; color:#012169; margin:0; line-height:1.1;">How we're advancing</h2>
+          <h2 style="font-family:'Outfit',ui-sans-serif,system-ui,sans-serif; font-size:clamp(2.5rem,6vw,5rem); font-weight:700; color:#012169; margin:0; line-height:1;">AI</h2>
+        </div>
+
+        <!-- Tab buttons -->
+        <div id="aigov-tabs" style="display:flex; border-bottom:2px solid #e5e5e5; margin-bottom:0; overflow-x:auto;">
+          <button onclick="switchTab('eo')" id="tab-eo"
+            style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.85rem; font-weight:500; padding:0.9rem 1.5rem; border:none; background:none; cursor:pointer; white-space:nowrap; color:#012169; border-bottom:3px solid #1e242f; margin-bottom:-2px; letter-spacing:0.02em;">
+            Executive Orders
+          </button>
+          <button onclick="switchTab('fs')" id="tab-fs"
+            style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.85rem; font-weight:500; padding:0.9rem 1.5rem; border:none; background:none; cursor:pointer; white-space:nowrap; color:#888; border-bottom:3px solid transparent; margin-bottom:-2px; letter-spacing:0.02em;">
+            Fact Sheets
+          </button>
+          <button onclick="switchTab('rm')" id="tab-rm"
+            style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.85rem; font-weight:500; padding:0.9rem 1.5rem; border:none; background:none; cursor:pointer; white-space:nowrap; color:#888; border-bottom:3px solid transparent; margin-bottom:-2px; letter-spacing:0.02em;">
+            Remarks
+          </button>
+          <button onclick="switchTab('ar')" id="tab-ar"
+            style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.85rem; font-weight:500; padding:0.9rem 1.5rem; border:none; background:none; cursor:pointer; white-space:nowrap; color:#888; border-bottom:3px solid transparent; margin-bottom:-2px; letter-spacing:0.02em;">
+            Articles
+          </button>
+        </div>
+
+        <!-- Tab content panels -->
+        <div class="tab-panels">
+
+          <!-- Left: photo panel -->
+          <div class="tab-img-panel" style="min-height:320px;">
+            <img id="tab-img" src="https://cdn.prod.website-files.com/686ecd0062f779f2ba045e1b/687f8ba1f58809a8264f2bb0_EOs%20photo.png"
+                 loading="lazy" alt="Executive Orders"
+                 style="width:100%; height:100%; object-fit:cover; display:block; min-height:320px;" />
+          </div>
+
+          <!-- Right: links panel -->
+          <div id="tab-content" class="tab-content-panel">
+
+            <!-- Executive Orders panel (default visible) -->
+            <div id="panel-eo">
+              <h3 style="font-family:'Outfit',ui-sans-serif,system-ui,sans-serif; font-size:1.4rem; font-weight:600; color:#012169; margin:0 0 1.25rem;">Executive Orders</h3>
+              <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                <a href="https://www.whitehouse.gov/presidential-actions/2025/07/promoting-the-export-of-the-american-ai-technology-stack/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">Promoting the Export of the American AI Technology Stack | 7/23/2025</a>
+                <a href="https://www.whitehouse.gov/presidential-actions/2025/07/accelerating-federal-permitting-of-data-center-infrastructure/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">Accelerating Federal Permitting of Data Center Infrastructure | 7/23/2025</a>
+                <a href="https://www.whitehouse.gov/presidential-actions/2025/07/preventing-woke-ai-in-the-federal-government/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">Preventing Woke AI in the Federal Government | 7/23/2025</a>
+                <a href="https://www.whitehouse.gov/presidential-actions/2025/04/advancing-artificial-intelligence-education-for-american-youth/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">Advancing Artificial Intelligence Education for American Youth | 4/23/2025</a>
+                <a href="https://www.whitehouse.gov/presidential-actions/2025/04/restoring-common-sense-to-federal-procurement/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">Restoring Common Sense to Federal Procurement | 4/15/2025</a>
+                <a href="https://www.whitehouse.gov/presidential-actions/2025/01/removing-barriers-to-american-leadership-in-artificial-intelligence/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">Removing Barriers to American Leadership in Artificial Intelligence | 1/23/2025</a>
+              </div>
+            </div>
+
+            <!-- Fact Sheets panel (hidden by default) -->
+            <div id="panel-fs" style="display:none;">
+              <h3 style="font-family:'Outfit',ui-sans-serif,system-ui,sans-serif; font-size:1.4rem; font-weight:600; color:#012169; margin:0 0 1.25rem;">Fact Sheets</h3>
+              <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                <a href="https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-promotes-the-export-of-american-ai-technologies/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">President Donald J. Trump Promotes the Export of American AI Technologies | 7/23/2025</a>
+                <a href="https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-accelerates-federal-permitting-of-data-center-infrastructure/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">President Donald J. Trump Accelerates Federal Permitting of Data Center Infrastructure | 7/23/2025</a>
+                <a href="https://www.whitehouse.gov/fact-sheets/2025/04/fact-sheet-president-donald-j-trump-advances-ai-education-for-american-youth/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">President Donald J. Trump Advances AI Education for American Youth | 4/23/2025</a>
+                <a href="https://www.whitehouse.gov/fact-sheets/2025/04/fact-sheet-president-donald-j-trump-restores-common-sense-to-federal-procurement/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">President Donald J. Trump Restores Common Sense to Federal Procurement | 4/15/2025</a>
+                <a href="https://www.whitehouse.gov/fact-sheets/2025/04/fact-sheet-eliminating-barriers-for-federal-artificial-intelligence-use-and-procurement/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">Eliminating Barriers for Federal AI Use and Procurement | 1/23/2025</a>
+              </div>
+            </div>
+
+            <!-- Remarks panel (hidden) -->
+            <div id="panel-rm" style="display:none;">
+              <h3 style="font-family:'Outfit',ui-sans-serif,system-ui,sans-serif; font-size:1.4rem; font-weight:600; color:#012169; margin:0 0 1.25rem;">Remarks</h3>
+              <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                <a href="https://usun.usmission.gov/remarks-at-the-security-councils-open-debate-on-artificial-intelligence-and-international-peace-and-security/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">Director Kratsios's Remarks at the UN Security Council | 9/25/2025</a>
+                <a href="https://www.whitehouse.gov/articles/2025/08/remarks-by-director-kratsios-at-the-apec-digital-and-ai-ministerial-meeting/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">Accelerating American AI Exports: Remarks by Director Kratsios at APEC | 8/5/2025</a>
+                <a href="https://www.youtube.com/watch?v=XhdOA3_e8Nw" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">Accelerating AI Leadership: A Conversation with AI and Crypto Czar Sacks | 6/10/2025</a>
+                <a href="https://www.youtube.com/watch?v=6MadPbPyiKA" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">AI Policy in the Trump Era: A Conversation with Director Kratsios | 6/5/2025</a>
+                <a href="https://www.whitehouse.gov/articles/2025/04/remarks-by-director-kratsios-at-the-endless-frontiers-retreat" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">The Golden Age of American Innovation: Remarks by Director Kratsios | 4/14/2025</a>
+              </div>
+            </div>
+
+            <!-- Articles panel (hidden) -->
+            <div id="panel-ar" style="display:none;">
+              <h3 style="font-family:'Outfit',ui-sans-serif,system-ui,sans-serif; font-size:1.4rem; font-weight:600; color:#012169; margin:0 0 1.25rem;">Articles | Memos</h3>
+              <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                <a href="https://www.whitehouse.gov/articles/2025/06/60-organizations-sign-white-house-pledge-to-support-americas-youth-and-invest-in-ai-education/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">60+ Organizations Sign White House Pledge to Support America's Youth and Invest in AI Education | 6/30/2025</a>
+                <a href="https://www.whitehouse.gov/articles/2025/04/american-public-submits-over-10000-comments-on-white-houses-ai-action-plan/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">American Public Submits Over 10,000 Comments on White House's AI Action Plan | 4/24/2025</a>
+                <a href="https://www.whitehouse.gov/articles/2025/04/white-house-releases-new-policies-on-federal-agency-ai-use-and-procurement/" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">White House Releases New Policies on Federal Agency AI Use and Procurement | 4/7/2025</a>
+                <a href="https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-21-Accelerating-Federal-Use-of-AI-through-Innovation-Governance-and-Public-Trust.pdf" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none; border-bottom:1px solid #eee; padding-bottom:0.6rem;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">OMB Memo: Accelerating Federal Use of AI through Innovation, Governance, and Public Trust | 4/3/2025</a>
+                <a href="https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-22-Driving-Efficient-Acquisition-of-Artificial-Intelligence-in-Government.pdf" target="_blank" style="font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.9rem; color:#012169; text-decoration:none;" onmouseover="this.style.color='#2a3260'" onmouseout="this.style.color='#012169'">OMB Memo: Driving Efficient Acquisition of Artificial Intelligence in Government | 4/3/2025</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    const tabImages = {
+
+      eo: 'https://cdn.prod.website-files.com/686ecd0062f779f2ba045e1b/687f8ba1f58809a8264f2bb0_EOs%20photo.png',
+      fs: 'https://cdn.prod.website-files.com/686ecd0062f779f2ba045e1b/687f8ba145c149018da33ca4_AI.Gov%20Fact%20Sheets.png',
+      rm: 'https://cdn.prod.website-files.com/686ecd0062f779f2ba045e1b/687f8ba159602c07dfd7a075_AI.Gov%20Remarks.png',
+      ar: 'https://cdn.prod.website-files.com/686ecd0062f779f2ba045e1b/687f8ba148431d589a557328_AI.Gov%20Articles.png'
+    };
+    function switchTab(tab) {
+      ['eo','fs','rm','ar'].forEach(t => {
+        document.getElementById('panel-' + t).style.display = t === tab ? 'block' : 'none';
+        const btn = document.getElementById('tab-' + t);
+        btn.style.color = t === tab ? '#012169' : '#888';
+        btn.style.borderBottom = t === tab ? '3px solid #012169' : '3px solid transparent';
+      });
+      document.getElementById('tab-img').src = tabImages[tab];
+    }
+    </script>
+
+    <!-- Article body continued -->
+    <div class="latex-paper w-full">
+      <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <article class="prose max-w-none pb-16 pt-12">
+
+          <p class="fade-in">America's AI Action Plan — authored by Michael Kratsios, David Sacks, and Marco Rubio, signed by the President in July 2025 — opens with a declaration that frames the moment precisely: the United States is in a race to achieve global dominance in artificial intelligence. Whoever has the largest AI ecosystem will set global standards and reap broad economic and national security benefits. The Plan calls for accelerating AI adoption across every Federal agency, building infrastructure at national scale, and establishing American AI as the global standard. These are not aspirations. They are policy directives with near-term execution timelines.</p>
+
+          <p class="fade-in">The federal government is now under mandate to procure AI-capable solutions at scale. That mandate creates a defined procurement window — and the companies that are positioned inside that window, with the intelligence infrastructure, government affairs relationships, and principal-level access already in place, are the ones that capture it. American AI exists to deliver that positioning to qualified companies operating at the frontier.</p>
+
+          <h2 id="overview" class="fade-in">The American AI Engagement</h2>
+
+          <ul>
+            <li class="fade-in">American AI positions qualified AI-capable companies to compete and win in the <strong>$793B federal marketplace</strong> — at the precise moment America's AI Action Plan directs every Federal agency to accelerate AI adoption as a national security imperative. The question is not whether the federal market will move. It is which companies are inside it when it does.</li>
+            <li class="fade-in">Engagements begin with an application. Any qualified company may apply and receive a direct decision — no prior introduction required. If there is not a fit, we will say so clearly and explain why.</li>
+            <li class="fade-in">Clients define their target agencies and contract objectives at the outset. The Foundation engagement is structured for delivery in 60–90 days.</li>
+            <li class="fade-in">American AI operates as a <strong>single, integrated engagement</strong> — Sunstone Advisory Group for AI-powered federal market intelligence, Steptoe LLP for government affairs and requirement shaping, and Life Force Global Alliance for access at the highest levels of American business, government, and national security. Three distinct capabilities. One coordinated effort.</li>
+            <li class="fade-in">Clients receive private, curated 1-on-1 introductions through Life Force Global Alliance — selected specifically for their industry, objectives, and active pursuit. Introductions are recalibrated as the engagement evolves.</li>
+            <li class="fade-in">American AI works with a <strong>select number of clients per quarter</strong>. The Foundation Build is the entry point — not the ceiling. Clients may continue on a month-to-month basis following the Foundation, with ongoing intelligence updates, dedicated office hours, Steptoe relationship maintenance, and quarterly engagement reviews for the life of their federal pursuit.</li>
+          </ul>
+
+          <h3 class="fade-in">The Foundation Build</h3>
+          <p class="fade-in">The Foundation Build delivers the market intelligence infrastructure, government affairs activation, and principal-level network access that most companies spend years and significant capital attempting to assemble independently. Clients enter the federal procurement conversation with the tools, relationships, and positioning clarity already in place — structured for execution within 60–90 days.</p>
+
+          <h2 id="ecosystem" class="fade-in">The Three-Part Ecosystem</h2>
+
+          <h3 class="fade-in">Sunstone Advisory Group — Intelligence</h3>
+          <p class="fade-in">Federal market data is incomplete, inaccurate, and unreliable in most dimensions. Contract records are miscoded. Spending data is fragmented across dozens of systems. Agency buying patterns are obscured by idiosyncratic procurement vehicles.</p>
+          <p class="fade-in">Sunstone Advisory Group applies the <strong>CCCALS method</strong> — Critical, Comprehensive, Contextual, Analytical, Logical, Skeptical — to build federal market intelligence that is precise, interrogated, and actionable. Every data point is cross-referenced against procurement history, congressional appropriations, agency forecasts, and pipeline signals. The output is delivered through Microsoft Power BI dashboards and AI-powered analytics, structured specifically around your target agencies and contract objectives. The result is clarity where others have noise — and targeting precision where others are guessing.</p>
+
+          <h3 class="fade-in">Steptoe LLP — Government Affairs</h3>
+          <p class="fade-in">At the most competitive level of federal procurement, outcomes are not determined by the quality of the proposal. They are determined by who shaped the requirement, who has an established relationship with the decision-maker, and who understood the political and budgetary landscape before the solicitation was written. Requirement shaping — the ability to influence what the government decides to buy and how it is scoped — is the highest-leverage activity in federal business development. It requires access that cannot be assembled after the fact.</p>
+          <p class="fade-in">Steptoe LLP is a preeminent international law firm founded in 1945, with more than 500 attorneys across Washington D.C., New York, London, and Brussels. Their Government Affairs, Public Policy, and Government Contracts practices operate at the highest levels of the federal system.</p>
+          <p class="fade-in">American AI's principal relationship at Steptoe is a Partner in Government Contracts, Government Affairs, and Congressional Oversight — a former Deputy Assistant to the President and Acting White House Cabinet Secretary, former Deputy Assistant Secretary of Defense for Counternarcotics and Global Threats, and Policy Advisor on the Trump-Vance Presidential Transition Team, appointed to the Homeland Security Advisory Council by President Trump and Secretary Noem. The value to this engagement is direct access to the agency officials, senior congressional staff, and decision-makers who determine procurement outcomes.</p>
+
+          <h3 class="fade-in">Life Force Global Alliance — Access</h3>
+          <p class="fade-in">The federal market is shaped by relationships that predate any procurement action. Agency priorities are influenced by conversations that take place well outside the formal contracting process — among senior officials, industry leaders, investors, and advisors who operate at the intersection of policy, capital, and national security. Access to those conversations is not available through standard business development channels.</p>
+          <p class="fade-in">During the initial 90-day engagement, Matt Argall personally curates and schedules private 1-on-1 introductions between the client and members of Life Force Global Alliance — selected specifically for your industry, objectives, and active pursuit. These are private, scheduled meetings with former Cabinet officials, agency directors, senior investment bankers, political strategists, and global investors — each selected because of their direct relevance to your federal objectives.</p>
+          <p class="fade-in">The relationships established during the Foundation engagement are lasting assets. They compound in value as the engagement progresses and the client's federal presence matures.</p>
+
+          <h2 id="calendar" class="fade-in">The Engagement Arc</h2>
+
+          <p class="fade-in">The federal government concentrates over <strong>23% of its annual contract spend in a single month</strong> — the fiscal year-end in September. FY2025 set a record: $85.5 billion in new contract awards executed in that month alone. FY2026 is tracking toward the all-time high of $90.1 billion set in FY2022.</p>
+          <p class="fade-in">Awards do not flow to the best proposal. They flow to vendors who are already known, already vetted, and already positioned inside the procurement conversation. Positioning is built in advance — through intelligence, relationship development, and requirement shaping that occurs months before any solicitation is released. The engagement is designed to be entered at any time and compounds in value as the client's federal presence matures.</p>
+
+          <ul>
+            <li class="fade-in"><strong>Phase 1 — Foundation Build.</strong> Sunstone establishes the intelligence baseline, SAM.gov profile, capabilities documentation, and engagement roadmap. Infrastructure is activated.</li>
+            <li class="fade-in"><strong>Phase 2 — Active Intelligence.</strong> Power BI dashboards delivered. Targeted business development outreach launched. Steptoe onboarding initiated. Life Force Global Alliance introductions commence.</li>
+            <li class="fade-in"><strong>Phase 3 — Requirement Shaping.</strong> Steptoe is engaged with agency decision-makers, carrying Sunstone intelligence as the brief. Requirement shaping underway.</li>
+            <li class="fade-in"><strong>Phase 4 — Capture.</strong> Proposal readiness assessed and confirmed. Political and procurement intelligence feeding capture strategy in real time.</li>
+            <li class="fade-in"><strong>Phase 5 — Response.</strong> Proposal responses developed, reviewed, and refined. Steptoe maintains agency relationships through the quiet period.</li>
+            <li class="fade-in"><strong>Phase 6 — Award.</strong> Contracts flow to companies that are known, vetted, and positioned. That positioning was built here.</li>
+          </ul>
+
+          <p class="fade-in">The engagement is not tied to a procurement calendar. A company that enters at any point begins building the intelligence infrastructure and relationships that determine outcomes. The earlier the entry, the greater the compounding advantage — but the window does not close on a fixed date.</p>
+
+          <h2 id="faq" class="fade-in">Frequently Asked Questions</h2>
+
+          <div class="faq-list fade-in" style="margin-top:1.5rem;">
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">
+                How do I know if my company is ready for the federal AI market?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">American AI engages companies that have a credible AI product or service, demonstrated commercial traction, and the operational capacity to deliver on a federal contract. We consider companies at varying stages of revenue — growth trajectory and market positioning carry more weight than existing federal revenue. The Foundation Build exists precisely to close the gap between commercial readiness and federal positioning. If your company has built something the government will want to buy, that is the relevant threshold.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">
+                Is there a downside to applying before I'm certain I'm ready?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">No. The application is the right first step regardless of timing certainty. If your company is selected for a direct conversation, that assessment clarifies positioning and readiness in ways that are useful independently of next steps. Companies that engage earlier build infrastructure and relationships that compound across procurement cycles — an advantage not available to those that wait.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">
+                What happens if my application is selected?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">Applications are reviewed by Eli Morin personally. Companies that meet the threshold for a direct conversation will be contacted to schedule a private call — this is not automatic, and not all applicants will advance to this stage. For those that do, the call is a direct, substantive assessment: your target agency alignment, set-aside eligibility, positioning gaps, and what a realistic engagement path looks like. If there is not a fit, we will say so clearly. We do not extend conversations that are not in a company's interest.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">
+                Do you work with companies outside of technology and defense?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">Yes. The federal government writes significant contracts across a broad range of sectors — technology, defense, energy, space, ocean and maritime, frontier technologies, biotechnology, healthcare, construction, logistics, professional services, financial products, and telecommunications. The CCCALS intelligence methodology applies wherever the government spends at scale. Life Force Global Alliance spans every domain where senior federal procurement decisions are made. If your company operates at the frontier of any field the government is actively investing in, the engagement is relevant.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">
+                What does the Life Force Global Alliance actually do for my business?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">It provides access to conversations that would otherwise take years to develop and are not available through standard channels. A private meeting with a former CDC Director changes how your company is understood in federal health procurement. A session with a former White House Cabinet Secretary provides political and budgetary context that no database can supply. A conversation with a senior investment banker clarifies how your company is perceived in the capital markets that surround major government programs. Each introduction is curated by Matt Argall to your specific situation, objectives, and active pursuit. These are not events. They are strategic assets.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">
+                Can I engage Steptoe without the Foundation Build?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">The two components are designed to work together. The intelligence and assets produced in the Foundation Build are the brief that Steptoe carries into agency meetings — the specific data, positioning analysis, and capability documentation that gives their government affairs team something substantive to work with. The architecture of the engagement reflects how federal procurement actually works: intelligence informs relationships, and relationships inform outcomes.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">
+                Who sets the scope and terms?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">Clients do. You specify your target agencies, contract vehicles, set-aside eligibility, and growth objectives. We build the engagement infrastructure around your goals and provide feedback on what is realistic given timing and the AI procurement landscape. Think of your stated objectives as the bar: the more ambitious the target, the more precise the work required.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">
+                What does continued engagement look like after the Foundation Build?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">The Foundation Build is the entry point — not the ceiling. After the Foundation, clients may continue on a month-to-month basis. Ongoing support includes Power BI intelligence updates, dedicated office hours, Steptoe relationship maintenance, Life Force Global Alliance introductions, and quarterly engagement reviews. The infrastructure stays active for as long as you are pursuing the federal market.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">
+                How do I get started?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">Email <a href="mailto:eli@americanai.capital">eli@americanai.capital</a> directly, or reach Eli Morin on <a href="https://signal.me/#p/+16268173440" target="_blank">Signal</a> or <a href="https://wa.me/16268173440" target="_blank">WhatsApp</a> at +1 (626) 817-3440. Every inquiry is reviewed personally by Eli Morin.</div>
+              </div>
+            </div>
+
+          </div>
+
+        </article>
+      </div>
+    </div>
+
+    <!-- ── NETWORK / TESTIMONIALS ── -->
+    <div id="network" class="w-full max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <h2 style="font-family:'Outfit',ui-sans-serif,system-ui,sans-serif; font-size:1.6rem; font-weight:700; letter-spacing:-0.02em; color:#012169; text-align:center; margin-bottom:1.5rem;" class="fade-in">Life Force Global Alliance</h2>
+      <p class="font-cmr text-center text-[#6b7280] text-base mb-8 max-w-xl mx-auto italic fade-in">Private 1-on-1 meetings with individuals who operate at the highest levels of American business and government — curated specifically to your goals.</p>
+
+      <div class="masonry gap-4 stagger-children">
+
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+          <div class="flex items-center mb-3">
+            <img src="photos/christian_berger.jpg" alt="Christian F. Berger" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Christian F. Berger</span>
+              <span class="text-[#4a4f5a] text-xs">Managing Director, Private Equity — McGuireWoods</span>
+            </div>
+          </div>
+          <div class="leading-normal text-base">Managing Director within McGuireWoods' Private Equity, M&amp;A, and Debt Finance practice. Business development at the intersection of private equity and capital markets. Recognized as Legal Sales &amp; Service Executive of the Year, 2019.</div>
+        </div>
+
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+          <div class="flex items-center mb-3">
+            <img src="photos/robert_redfield.jpg" alt="Robert Redfield" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Robert Redfield</span>
+              <span class="text-[#4a4f5a] text-xs">Former Director, U.S. Centers for Disease Control and Prevention</span>
+            </div>
+          </div>
+          <div class="leading-normal text-base">Former Director of the CDC (2018–2021) and Administrator of the Agency for Toxic Substances and Disease Registry. Virologist with 30+ years in infectious disease research. Co-founded the University of Maryland's Institute of Human Virology.</div>
+        </div>
+
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+          <div class="flex items-center mb-3">
+            <img src="photos/steven_marder.jpg" alt="Steven Marder" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Steven Marder</span>
+              <span class="text-[#4a4f5a] text-xs">Managing Director, TMT Investment Banking — BTIG</span>
+            </div>
+          </div>
+          <div class="leading-normal text-base">25+ years in Technology, Media, and Telecommunications investment banking. Managing Director at BTIG guiding TMT deal-making. Board roles at WideOpenWest (NYSE: WOW) and InvestorPlace Media. J.D., St. John's University; B.A., Columbia University.</div>
+        </div>
+
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+          <div class="flex items-center mb-3">
+            <img src="photos/robert_wasinger.jpg" alt="Robert Wasinger" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Robert Wasinger</span>
+              <span class="text-[#4a4f5a] text-xs">Co-Founder &amp; Partner, The Ragnar Group</span>
+            </div>
+          </div>
+          <div class="leading-normal text-base">30+ years of political and strategic experience. Former Chief of Staff to U.S. Senator Sam Brownback. Senior member of Trump's 2016 presidential campaign and Director of Senate and Gubernatorial Outreach.</div>
+        </div>
+
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+          <div class="flex items-center mb-3">
+            <img src="photos/james_hodges.jpg" alt="Governor James Hodges" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Governor James Hodges</span>
+              <span class="text-[#4a4f5a] text-xs">President &amp; CEO, McGuireWoods Consulting</span>
+            </div>
+          </div>
+          <div class="leading-normal text-base">Former Governor of South Carolina. President &amp; CEO of McGuireWoods Consulting; advises on public policy and business strategy nationwide. National co-chair for Obama's 2008 campaign. Named "Lawyer of the Year" for Government Relations.</div>
+        </div>
+
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+          <div class="flex items-center mb-3">
+            <img src="photos/thor_torrens.jpg" alt='Evan "Thor" Torrens' class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Evan "Thor" Torrens</span>
+              <span class="text-[#4a4f5a] text-xs">Emmy Award-Winning Media Strategist &amp; Former SAPO</span>
+            </div>
+          </div>
+          <div class="leading-normal text-base">Emmy Award-winning media expert and former Special Assistant to President Donald Trump. Known for crafting influential narratives at the highest levels of politics. Advises leaders, corporations, and startups on strategic communications and public perception.</div>
+        </div>
+
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+          <div class="flex items-center mb-3">
+            <img src="photos/shahal_khan.jpg" alt="Shahal M. Khan" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Shahal M. Khan</span>
+              <span class="text-[#4a4f5a] text-xs">Executive Chairman &amp; CEO, BurTech (NASDAQ)</span>
+            </div>
+          </div>
+          <div class="leading-normal text-base">Strategic investor with 30+ years spanning telecom, real estate, energy, and technology. Has syndicated over $25B in equity financing. U.S. Council on Competitiveness Commissioner. Namesake of the Shahal M. Khan Institute for Cybersecurity at American University.</div>
+        </div>
+
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+          <div class="flex items-center mb-3">
+            <img src="photos/brock_pierce.jpg" alt="Brock Pierce" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Brock Pierce</span>
+              <span class="text-[#4a4f5a] text-xs">Co-Founder, Tether · Blockchain Capital · Block.one</span>
+            </div>
+          </div>
+          <div class="leading-normal text-base">Pioneer and early architect of the digital currency ecosystem. Co-founder of Tether, Blockchain Capital, Mastercoin (the first ICO), and Block.one. Bitcoin Foundation Chairman. Has raised over $5B for companies he's founded.</div>
+        </div>
+
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+          <div class="flex items-center mb-3">
+            <img src="photos/matt_flynn.jpg" alt="Matthew J. Flynn" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Matthew J. Flynn</span>
+              <span class="text-[#4a4f5a] text-xs">Partner — Steptoe LLP</span>
+            </div>
+          </div>
+          <div class="leading-normal text-base">Former Deputy Assistant to the President and Acting White House Cabinet Secretary. Former Deputy Assistant Secretary of Defense for Counternarcotics. Trump-Vance Transition Team policy advisor. Appointed to the Homeland Security Advisory Council by President Trump and Secretary Noem.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── TEAM ── -->
+    <div id="team" class="w-full max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-10 border-t border-gray-200">
+      <h2 style="font-family:'Outfit',ui-sans-serif,system-ui,sans-serif; font-size:1.6rem; font-weight:700; letter-spacing:-0.02em; color:#012169; text-align:center; margin-bottom:2rem;" class="fade-in">The Team</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+
+        <!-- Eli Morin -->
+        <div class="border border-gray-300 rounded-lg p-6 bg-white font-cmr card-lift fade-in">
+          <img
+            src="photos/eli_morin.jpg"
+            alt="Eli Morin"
+            class="team-avatar"
+          />
+          <p class="font-bold text-lg mb-1 text-center">Eli Morin</p>
+          <p class="text-[#012169] text-sm font-medium mb-4 text-center">Principal</p>
+          <p class="text-base leading-relaxed text-gray-800">Eli Calderón Morin is a Founding Member of Otter.ai — the AI platform transforming voice into actionable intelligence for 35+ million users worldwide. He built and scaled AI-driven platforms acquired by Google and Alibaba, including Alohar Mobile. With over a decade of experience building venture-backed technology companies at the frontier of AI and mobile, Eli has helped grow AI into mainstream platforms spanning enterprise, government, and consumer markets.</p>
+          <p class="text-base leading-relaxed text-gray-800 mt-3">At American AI, he is applying that same pattern recognition to the federal market — at the exact moment the White House AI Action Plan has made it the most significant technology procurement opportunity in American history.</p>
+          <p class="mt-4"><a href="https://www.linkedin.com/in/elimorin/" target="_blank" class="text-[#012169] text-sm hover:underline">LinkedIn →</a> &nbsp;·&nbsp; <a href="https://x.com/elimorin" target="_blank" class="text-[#012169] text-sm hover:underline">X →</a></p>
+        </div>
+
+        <!-- Matt Argall -->
+        <div class="border border-gray-300 rounded-lg p-6 bg-white font-cmr card-lift fade-in">
+          <img
+            src="photos/matt_argall.jpg"
+            alt="Matt Argall"
+            class="team-avatar"
+          />
+          <p class="font-bold text-lg mb-1 text-center">Matt Argall</p>
+          <p class="text-[#012169] text-sm font-medium mb-4 text-center">President</p>
+          <p class="text-base leading-relaxed text-gray-800">Matt builds empires around genius ideas that are almost always ahead of their time — bringing power brokers to the table with a blueprint and the arsenal to launch a movement. At 21, he grew Accent Energy from 8,000 to 800,000 customers in a year. He then drove over $8B in student loan consolidations, led online education ventures with 800,000 paid enrollees, and scaled Digital Mavericks to 160 clients and 30MM daily fan interactions. His ventures span finance, blockchain, AI, semiconductors, telecommunications, public affairs, government procurement, and digital media.</p>
+          <p class="text-base leading-relaxed text-gray-800 mt-3">Matt built the Life Force Global Alliance relationship by relationship — assembling a curated network of former heads of state, White House officials, investment bank executives, healthcare leaders, and political strategists. He personally curates every introduction: assessing your goals, mapping them to the network, and scheduling the private 1-on-1 meetings that move your business forward.</p>
+          <p class="mt-4"><a href="https://www.linkedin.com/in/matt-argall-0a4751157/" target="_blank" class="text-[#012169] text-sm hover:underline">LinkedIn →</a></p>
+        </div>
+
+        <!-- Zack Larson -->
+        <div class="border border-gray-300 rounded-lg p-6 bg-white font-cmr card-lift fade-in">
+          <img
+            src="photos/zack_larson.jpg"
+            alt="Zack Larson"
+            class="team-avatar"
+          />
+          <p class="font-bold text-lg mb-1 text-center">Zack Larson</p>
+          <p class="text-[#012169] text-sm font-medium mb-4 text-center">Senior Federal Market Strategist</p>
+          <p class="text-base leading-relaxed text-gray-800">Zack is a senior federal market strategist with 15+ years helping small and mid-sized businesses win, scale, and sustain revenue in the federal marketplace. He has built and led capture, proposal, and go-to-market teams that have generated over <strong>$2B in contract awards</strong> and $1B in winning proposals. Formerly VP of Business Development at FedBiz Access (2010–2019), he has since founded and led multiple advisory firms — including Federal Contracting Advisors, Sunstone Advisory Group, and GovPointe — and is a Partner at GovConAccelerator. He has consulted with more than 20,000 federal contractors and guided 100+ firms to their first federal contract (now exceeding $200M cumulatively).</p>
+          <p class="text-base leading-relaxed text-gray-800 mt-3">Zack leads every client engagement from initial selection through active federal pursuit — and he answers his own phone.</p>
+          <p class="mt-4"><a href="https://www.linkedin.com/in/zack-larson-fca/" target="_blank" class="text-[#012169] text-sm hover:underline">LinkedIn →</a></p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── CONTACT / APPLICATION FORM ── -->
+    <div id="contact" class="w-full max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16" style="border-top:1px solid rgba(30,36,47,0.15);">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-8 fade-in">
+          <p class="font-cmr text-[#2e3440] text-base mb-6">American AI works with a focused number of companies each quarter. Engagements are selective by design — if you believe your company belongs in this conversation, we are open to hearing from you.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiosSjh1hCYIJ9gsaLkX35_jw_9svYpgXssHS0CXBWwCjbuQ/viewform" target="_blank" class="apply-btn" style="font-size:1rem; padding:10px 32px;">Apply Now</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer style="background-color:#012169;" class="py-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="footer-grid grid grid-cols-2 md:grid-cols-5 gap-8 items-start">
+
+        <div class="footer-brand col-span-2 md:col-span-1">
+          <a href="/" class="nav-logo-link">
+            <span style="font-family:'CMU Serif','Computer Modern',Georgia,serif; font-size:1rem; font-weight:400; letter-spacing:0.01em; color:white; border:1.5px solid rgba(255,255,255,0.8); padding:4px 12px; display:inline-block; line-height:1.3;">American AI</span>
+          </a>
+          <p class="font-cmr text-white/50 text-xs mt-2">www.americanai.capital</p>
+        </div>
+
+        <div>
+          <h3 class="font-cmr text-white font-medium mb-3">Navigation</h3>
+          <ul class="space-y-2">
+            <li><a href="#overview" class="font-cmr text-sm text-white/80 hover:text-white transition-colors">Overview</a></li>
+            <li><a href="#ecosystem" class="font-cmr text-sm text-white/80 hover:text-white transition-colors">Ecosystem</a></li>
+            <li><a href="#calendar" class="font-cmr text-sm text-white/80 hover:text-white transition-colors">Timeline</a></li>
+            <li><a href="#faq" class="font-cmr text-sm text-white/80 hover:text-white transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-cmr text-white font-medium mb-3">Partners</h3>
+          <ul class="space-y-2">
+            <li><a href="https://sunstoneag.com" target="_blank" class="font-cmr text-sm text-white/80 hover:text-white transition-colors">Sunstone Advisory</a></li>
+            <li><a href="https://www.steptoe.com/en/" target="_blank" class="font-cmr text-sm text-white/80 hover:text-white transition-colors">Steptoe LLP</a></li>
+            <li><a href="#network" class="font-cmr text-sm text-white/80 hover:text-white transition-colors">Life Force Global Alliance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-cmr text-white font-medium mb-3">Contact</h3>
+          <p class="font-cmr text-xs text-white/60 mb-2">Eli Morin, Principal</p>
+          <ul class="space-y-2">
+            <li><a href="mailto:eli@americanai.capital" class="font-cmr text-sm text-white/80 hover:text-white transition-colors">eli@americanai.capital</a></li>
+            <li><a href="https://signal.me/#p/+16268173440" target="_blank" class="font-cmr text-sm text-white/80 hover:text-white transition-colors">Signal</a></li>
+            <li><a href="https://wa.me/16268173440" target="_blank" class="font-cmr text-sm text-white/80 hover:text-white transition-colors">WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiosSjh1hCYIJ9gsaLkX35_jw_9svYpgXssHS0CXBWwCjbuQ/viewform" target="_blank" style="display:inline-block; padding:6px 20px; background:white; color:#012169; font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif; font-size:0.875rem; font-weight:600; text-decoration:none; border-radius:4px; border:1.5px solid white; transition:background 0.15s;">Apply Now</a>
+          <p class="font-cmr text-xs text-white/50 mt-6"><a href="https://www.whitehouse.gov/copyright/" target="_blank" class="font-cmr text-xs text-white/50 hover:text-white/80 transition-colors">© 2026 American AI.</a><br/>All rights reserved.</p>
+          <p class="mt-3"><a href="https://www.whitehouse.gov/privacy/" target="_blank" class="font-cmr text-xs text-white/50 hover:text-white/80 transition-colors">Privacy Policy</a></p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── SCRIPTS ── -->
+  <script>
+    // ── FAQ Accordion ──
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const body = item.querySelector('.faq-body');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-body').style.maxHeight = '0';
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    }
+
+    // ── Mobile hamburger menu ──
+    const toggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      iconOpen.classList.toggle('hidden', isOpen);
+      iconClose.classList.toggle('hidden', !isOpen);
+    });
+
+    // Close mobile menu when a link is tapped
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+
+    // ── Fade-in on scroll (Intersection Observer) ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  </script>
+
+</body>
+</html>
