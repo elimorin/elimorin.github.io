@@ -54,6 +54,19 @@
     @media (min-width: 768px) { .masonry { columns: 2; } }
     @media (min-width: 1024px) { .masonry { columns: 3; } }
 
+    /* ── LIFE FORCE EXPAND ── */
+    .lf-extra { display: none; }
+    .masonry.lf-show .lf-extra { display: block; }
+    .lf-toggle-wrap { text-align: center; margin-top: 1.5rem; }
+    .lf-toggle {
+      background: transparent; color: #012169; font-family: var(--font-sans);
+      font-weight: 500; font-size: 0.8125rem; border: 1.5px solid #012169;
+      border-radius: 2px; padding: 8px 22px; cursor: pointer;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .lf-toggle:hover { background: #012169; color: #fff; }
+
     /* ── BUTTONS (ai.gov identity: Instrument Sans, bordered, clean) ── */
     .apply-btn {
       padding: 8px 22px;
@@ -322,8 +335,28 @@
       <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Alert box -->
-        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-8 prose max-w-none fade-in">
-          <p>The U.S. federal government spends <strong>$681B annually in contracts</strong> — with AI/ML the fastest-growing category at 40%+ YoY growth — and the White House AI Action Plan's 90+ directives are designed to accelerate that further. <strong>Applications are now open for American AI's Q3 2026 engagement cycle. The deadline to apply is July 21st, 2026 at 9:00 PM PT.</strong> American AI will respond to all on-time applicants by August 1st, 2026.</p>
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6 prose max-w-none fade-in">
+          <p><strong>Q3 2026 applications are open.</strong> Deadline: July 21, 2026 at 9:00 PM PT. Decisions sent by August 1, 2026. <a href="https://forms.gle/GnvzTjUqJmfmCEr29" target="_blank" rel="noopener noreferrer" style="color:#012169; font-weight:600;">Apply now &rarr;</a></p>
+        </div>
+
+        <!-- Stat band -->
+        <div class="fade-in" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:1px; background:#e5e7eb; border:1px solid #e5e7eb; border-radius:8px; overflow:hidden; margin-bottom:2rem;">
+          <div style="background:#fff; padding:1.25rem 1rem; text-align:center;">
+            <div style="font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:700; color:#012169; line-height:1;">$681B</div>
+            <div style="font-size:0.78rem; color:#4a4f5a; margin-top:0.4rem; line-height:1.3;">Annual federal contracts</div>
+          </div>
+          <div style="background:#fff; padding:1.25rem 1rem; text-align:center;">
+            <div style="font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:700; color:#012169; line-height:1;">40%+</div>
+            <div style="font-size:0.78rem; color:#4a4f5a; margin-top:0.4rem; line-height:1.3;">YoY growth in AI/ML</div>
+          </div>
+          <div style="background:#fff; padding:1.25rem 1rem; text-align:center;">
+            <div style="font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:700; color:#012169; line-height:1;">90+</div>
+            <div style="font-size:0.78rem; color:#4a4f5a; margin-top:0.4rem; line-height:1.3;">AI Action Plan directives</div>
+          </div>
+          <div style="background:#fff; padding:1.25rem 1rem; text-align:center;">
+            <div style="font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:700; color:#012169; line-height:1;">$85.5B</div>
+            <div style="font-size:0.78rem; color:#4a4f5a; margin-top:0.4rem; line-height:1.3;">Awarded in Sept FY25 alone</div>
+          </div>
         </div>
 
         <!-- Main article -->
@@ -331,11 +364,7 @@
 
           <h1 class="fade-in">Positioned to Win. A Federal Engagement Firm for the AI Era.</h1>
 
-          <p class="fade-in">The United States is in a race to achieve global dominance in artificial intelligence. The Administration has made the stakes explicit, the directive clear, and the policy architecture concrete. What remains is execution — and execution in the federal market requires more than a capable product.</p>
-
-          <p class="fade-in">Federal procurement is a structured system with specific intelligence requirements, relationship dependencies, and procurement timelines that operate independently of commercial market logic. Companies that enter without that infrastructure spend months — sometimes years — learning what qualified operators already know. The requirement was shaped before they arrived. The decision-maker had never heard their name. The window had already closed.</p>
-
-          <p class="fade-in">American AI was built to eliminate that disadvantage.</p>
+          <p class="fade-in">American AI positions frontier AI companies to compete and win in the <strong>$793B federal market</strong> — at the moment the White House AI Action Plan has directed every agency to buy. We deliver the intelligence, government affairs, and principal-level access most companies spend years trying to assemble alone.</p>
 
         </article>
       </div>
@@ -511,44 +540,32 @@
       <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <article class="prose max-w-none pb-16 pt-12">
 
-          <p class="fade-in">America's AI Action Plan — authored by Michael Kratsios, David Sacks, and Marco Rubio, signed by the President in July 2025 — opens with a declaration that frames the moment precisely: the United States is in a race to achieve global dominance in artificial intelligence. Whoever has the largest AI ecosystem will set global standards and reap broad economic and national security benefits. The Plan calls for accelerating AI adoption across every Federal agency, building infrastructure at national scale, and establishing American AI as the global standard. These are not aspirations. They are policy directives with near-term execution timelines.</p>
-
-          <p class="fade-in">The federal government is now under mandate to procure AI-capable solutions at scale. That mandate creates a defined procurement window — and the companies that are positioned inside that window, with the intelligence infrastructure, government affairs relationships, and principal-level access already in place, are the ones that capture it. American AI exists to deliver that positioning to qualified companies operating at the frontier.</p>
+          <p class="fade-in">The White House AI Action Plan, signed in July 2025, directs every federal agency to procure AI-capable solutions at scale. The procurement window is open. The companies inside it — with the intelligence, relationships, and access already in place — are the ones that capture it.</p>
 
           <h2 id="overview" class="fade-in">The American AI Engagement</h2>
 
           <ul>
-            <li class="fade-in">American AI positions qualified AI-capable companies to compete and win in the <strong>$793B federal marketplace</strong> — at the precise moment America's AI Action Plan directs every Federal agency to accelerate AI adoption as a national security imperative. The question is not whether the federal market will move. It is which companies are inside it when it does.</li>
-            <li class="fade-in">Engagements begin with an application. Any qualified company may apply and receive a direct decision — no prior introduction required. If there is not a fit, we will say so clearly and explain why.</li>
-            <li class="fade-in">Clients define their target agencies and contract objectives at the outset. The Foundation engagement is structured for delivery in 60–90 days.</li>
-            <li class="fade-in">American AI operates as a <strong>single, integrated engagement</strong> — Sunstone Advisory Group for AI-powered federal market intelligence, Steptoe LLP for government affairs and requirement shaping, and Life Force Global Alliance for access at the highest levels of American business, government, and national security. Three distinct capabilities. One coordinated effort.</li>
-            <li class="fade-in">Clients receive private, curated 1-on-1 introductions through Life Force Global Alliance — selected specifically for their industry, objectives, and active pursuit. Introductions are recalibrated as the engagement evolves.</li>
-            <li class="fade-in">American AI works with a <strong>select number of clients per quarter</strong>. The Foundation Build is the entry point — not the ceiling. Clients may continue on a month-to-month basis following the Foundation, with ongoing intelligence updates, dedicated office hours, Steptoe relationship maintenance, and quarterly engagement reviews for the life of their federal pursuit.</li>
+            <li class="fade-in"><strong>Single, integrated engagement.</strong> Sunstone Advisory Group for federal market intelligence, Steptoe LLP for government affairs and requirement shaping, Life Force Global Alliance for principal-level access. Three capabilities, one coordinated effort.</li>
+            <li class="fade-in"><strong>Foundation Build delivered in 60–90 days.</strong> Clients define target agencies and contract objectives at the outset.</li>
+            <li class="fade-in"><strong>Apply directly — no prior introduction required.</strong> If there's no fit, we say so clearly.</li>
+            <li class="fade-in"><strong>Selective by quarter.</strong> Foundation is the entry point. Clients continue month-to-month with ongoing intelligence, Steptoe relationship maintenance, and Life Force introductions for the life of their federal pursuit.</li>
           </ul>
-
-          <h3 class="fade-in">The Foundation Build</h3>
-          <p class="fade-in">The Foundation Build delivers the market intelligence infrastructure, government affairs activation, and principal-level network access that most companies spend years and significant capital attempting to assemble independently. Clients enter the federal procurement conversation with the tools, relationships, and positioning clarity already in place — structured for execution within 60–90 days.</p>
 
           <h2 id="ecosystem" class="fade-in">The Three-Part Ecosystem</h2>
 
           <h3 class="fade-in">Sunstone Advisory Group — Intelligence</h3>
-          <p class="fade-in">Federal market data is incomplete, inaccurate, and unreliable in most dimensions. Contract records are miscoded. Spending data is fragmented across dozens of systems. Agency buying patterns are obscured by idiosyncratic procurement vehicles.</p>
-          <p class="fade-in">Sunstone Advisory Group applies the <strong>CCCALS method</strong> — Critical, Comprehensive, Contextual, Analytical, Logical, Skeptical — to build federal market intelligence that is precise, interrogated, and actionable. Every data point is cross-referenced against procurement history, congressional appropriations, agency forecasts, and pipeline signals. The output is delivered through AI-powered intelligence dashboards, structured specifically around your target agencies and contract objectives. The result is clarity where others have noise — and targeting precision where others are guessing.</p>
+          <p class="fade-in">Federal market data is fragmented, miscoded, and unreliable. Sunstone applies the <strong>CCCALS method</strong> — Critical, Comprehensive, Contextual, Analytical, Logical, Skeptical — and delivers AI-powered intelligence dashboards built around your target agencies and contract objectives. Clarity where others have noise. Targeting precision where others guess.</p>
 
           <h3 class="fade-in">Steptoe LLP — Government Affairs</h3>
-          <p class="fade-in">At the most competitive level of federal procurement, outcomes are not determined by the quality of the proposal. They are determined by who shaped the requirement, who has an established relationship with the decision-maker, and who understood the political and budgetary landscape before the solicitation was written. Requirement shaping — the ability to influence what the government decides to buy and how it is scoped — is the highest-leverage activity in federal business development. It requires access that cannot be assembled after the fact.</p>
-          <p class="fade-in">Steptoe LLP is a preeminent international law firm founded in 1945, with more than 500 attorneys across Washington D.C., New York, London, and Brussels. Their Government Affairs, Public Policy, and Government Contracts practices operate at the highest levels of the federal system.</p>
-          <p class="fade-in">American AI's principal relationship at Steptoe is a Partner in Government Contracts, Government Affairs, and Congressional Oversight — a former Deputy Assistant to the President and Acting White House Cabinet Secretary, former Deputy Assistant Secretary of Defense for Counternarcotics and Global Threats, and Policy Advisor on the Trump-Vance Presidential Transition Team, appointed to the Homeland Security Advisory Council by President Trump and Secretary Noem. The value to this engagement is direct access to the agency officials, senior congressional staff, and decision-makers who determine procurement outcomes.</p>
+          <p class="fade-in">Outcomes are decided before the solicitation is written — by who shaped the requirement and who knows the decision-maker. Steptoe LLP, founded in 1945 with 500+ attorneys across DC, New York, London, and Brussels, operates at the highest levels of federal government affairs.</p>
+          <p class="fade-in">American AI's principal at Steptoe is a Partner in Government Contracts and Government Affairs — former Deputy Assistant to the President, Acting White House Cabinet Secretary, and Trump-Vance Transition Team Policy Advisor, appointed to the Homeland Security Advisory Council by President Trump and Secretary Noem. The value: direct access to the officials and senior staff who determine procurement outcomes.</p>
 
           <h3 class="fade-in">Life Force Global Alliance — Access</h3>
-          <p class="fade-in">The federal market is shaped by relationships that predate any procurement action. Agency priorities are influenced by conversations that take place well outside the formal contracting process — among senior officials, industry leaders, investors, and advisors who operate at the intersection of policy, capital, and national security. Access to those conversations is not available through standard business development channels.</p>
-          <p class="fade-in">During the initial 90-day engagement, Matt Argall personally curates and schedules private 1-on-1 introductions between the client and members of Life Force Global Alliance — selected specifically for your industry, objectives, and active pursuit. These are private, scheduled meetings with former Cabinet officials, agency directors, senior investment bankers, political strategists, and global investors — each selected because of their direct relevance to your federal objectives.</p>
-          <p class="fade-in">The relationships established during the Foundation engagement are lasting assets. They compound in value as the engagement progresses and the client's federal presence matures.</p>
+          <p class="fade-in">Federal priorities are shaped in conversations that happen outside the contracting process. During your 90-day engagement, Matt Argall personally curates and schedules private 1-on-1 meetings with former Cabinet officials, agency directors, senior investment bankers, and global investors — each selected for direct relevance to your federal objectives. The relationships compound for the life of your federal pursuit.</p>
 
           <h2 id="calendar" class="fade-in">The Engagement Arc</h2>
 
-          <p class="fade-in">The federal government concentrates over <strong>23% of its annual contract spend in a single month</strong> — the fiscal year-end in September. FY2025 set a record: $85.5 billion in new contract awards executed in that month alone. FY2026 is tracking toward the all-time high of $90.1 billion set in FY2022.</p>
-          <p class="fade-in">Awards do not flow to the best proposal. They flow to vendors who are already known, already vetted, and already positioned inside the procurement conversation. Positioning is built in advance — through intelligence, relationship development, and requirement shaping that occurs months before any solicitation is released. The engagement is designed to be entered at any time and compounds in value as the client's federal presence matures.</p>
+          <p class="fade-in">The federal government concentrates over <strong>23% of its annual contract spend in September</strong> — FY25 set a record at $85.5B in a single month. Awards flow to vendors who are already known, vetted, and positioned. Positioning is built months before any solicitation drops.</p>
 
           <ul>
             <li class="fade-in"><strong>Phase 1 — Foundation Build.</strong> Sunstone establishes the intelligence baseline, SAM.gov profile, capabilities documentation, and engagement roadmap. Infrastructure is activated.</li>
@@ -559,7 +576,11 @@
             <li class="fade-in"><strong>Phase 6 — Award.</strong> Contracts flow to companies that are known, vetted, and positioned. That positioning was built here.</li>
           </ul>
 
-          <p class="fade-in">The engagement is not tied to a procurement calendar. A company that enters at any point begins building the intelligence infrastructure and relationships that determine outcomes. The earlier the entry, the greater the compounding advantage — but the window does not close on a fixed date.</p>
+          <p class="fade-in">Enter at any time. The earlier you start, the greater the compounding advantage.</p>
+
+          <div class="fade-in" style="text-align:center; margin:2rem 0 0;">
+            <a href="https://forms.gle/GnvzTjUqJmfmCEr29" target="_blank" rel="noopener noreferrer" class="apply-btn">Apply for Q3 2026 →</a>
+          </div>
 
           <h2 id="faq" class="fade-in">Frequently Asked Questions</h2>
 
@@ -750,10 +771,10 @@
             <img src="photos/brock_pierce.jpg" alt="Brock Pierce" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
               <span class="font-bold text-sm">Brock Pierce</span>
-              <span class="text-[#4a4f5a] text-xs">Co-Founder, Tether · Blockchain Capital · Block.one</span>
+              <span class="text-[#4a4f5a] text-xs">Chairman, Bitcoin Foundation · Co-Founder, Tether</span>
             </div>
           </div>
-          <div class="leading-normal text-base">Pioneer and early architect of the digital currency ecosystem. Co-founder of Tether, Blockchain Capital, Mastercoin (the first ICO), and Block.one. Bitcoin Foundation Chairman. Has raised over $5B for companies he's founded.</div>
+          <div class="leading-normal text-base">Chairman of the Bitcoin Foundation and Co-Founder of Tether. Pioneer and early architect of the digital currency ecosystem, also co-founding Blockchain Capital and Mastercoin (the first ICO). Has raised over $5B for companies he's founded.</div>
         </div>
 
         <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
@@ -767,7 +788,7 @@
           <div class="leading-normal text-base">Former Deputy Assistant to the President and Acting White House Cabinet Secretary. Former Deputy Assistant Secretary of Defense for Counternarcotics. Trump-Vance Transition Team policy advisor. Appointed to the Homeland Security Advisory Council by President Trump and Secretary Noem.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/andrey_lazorenko.jpg" alt="Andrey Lazorenko" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -778,7 +799,7 @@
           <div class="leading-normal text-base">CEO of ADI Foundation, founded by Sirius International — the digital arm of IHC ($240B+ UAE holding company). Building enterprise-grade blockchain infrastructure to position the UAE at the forefront of digital systems. Former CEO and Co-Founder of IdeaSoft, with 250+ Web3 and fintech projects delivered worldwide.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/prince_anthony_bart.jpg" alt="Prince Anthony Bart-Appiah" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -789,7 +810,7 @@
           <div class="leading-normal text-base">Cross-continental investment facilitator building partnerships across Africa, the Americas, and the Caribbean. Descendant of the Akwamu Royal Heritage of Ghana. Board member of the Ghana Tourism Authority and chair of its Marketing Sub-Committee. Trusted connector for organizations expanding into African markets.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/greg_warnock.jpg" alt="Greg Warnock" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -800,7 +821,7 @@
           <div class="leading-normal text-base">Co-Founder and Managing Director of Mercato Partners. Previously co-founded vSpring Capital and founded Junto Partners to mentor entrepreneurs. Recognized leader in Utah's startup ecosystem. Holds a B.S., M.B.A., and Ph.D. in Entrepreneurship and Venture Finance.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/jason_sugarman.jpg" alt="Jason A. Sugarman" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -811,7 +832,7 @@
           <div class="leading-normal text-base">Finance leader specializing in sports financing, asset-based lending, private equity, and infrastructure. Investor in Los Angeles Football Club (LAFC), the Oklahoma City Dodgers, and championship esports team Team Liquid. Son of Peter Guber; helps manage the family estate.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/peter_alexander.jpg" alt="Peter John Alexander" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -822,7 +843,7 @@
           <div class="leading-normal text-base">Chief Business Officer at MeetKai driving global growth, business development, and operations. Former Global Director of Partnerships for the LA Chargers, with prior experience inside the Federal Government and in early-stage venture investment and investment banking. Pioneer in immersive AI experiences.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/robert_rotunno.jpg" alt="Robert Rotunno" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -833,7 +854,7 @@
           <div class="leading-normal text-base">Financial professional with 20+ years in the securities industry. Currently with Spartan Capital Securities, LLC, with prior leadership and advisory roles at multiple firms. Licensed in over 20 U.S. states and territories. Experience spans capital markets, structured products, and long-term portfolio planning.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/robert_hamblet.jpg" alt="Robert P. Hamblet Jr." class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -844,7 +865,7 @@
           <div class="leading-normal text-base">Veteran of five generations of mobile technology — 4G, 5G, and emerging 6G. Senior engineering and architecture roles at Intel Smart-Edge, AT&amp;T Mobility Labs, Globe Touch, and Teal Communications. Pioneer in MEC, private LTE/CBRS, and secure IP exchange systems. CTO of Wire-Labs.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/chris_reinhold.jpg" alt="Chris Reinhold" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -855,7 +876,7 @@
           <div class="leading-normal text-base">25-year marketing veteran and pioneer in the CBD and hemp industry. Founder of Medterra, Five, and Venus — among the largest online CBD companies in the world, generating eight-figure revenues. Recognized as one of the top media buyers in the category, known for disruptive product development and brand scaling.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/kat_khosrowyar.jpg" alt="Kat Khosrowyar" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -866,7 +887,7 @@
           <div class="leading-normal text-base">Associate Director for Regulatory and Scientific Affairs at the American Chemistry Council, leading efforts to protect the chemical industry from drone, AI, and cyber risks. Former Trade Advisor Attaché for Luxembourg in the Middle East. Co-led Operation Soccer Ball, evacuating Afghan girls' national soccer team to safety. Featured on 60 Minutes, WSJ, and TEDx.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/rick_ferreira.jpg" alt="Rick Ferreira" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -877,7 +898,7 @@
           <div class="leading-normal text-base">Healthcare leader and entrepreneur focused on reducing healthcare delivery costs through novel technology, service, supply chain, and product design solutions. Has launched, scaled, and sold multiple businesses challenging the established inequities between provider, patient, and supplier.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/glen_jackson.jpg" alt="Glen Jackson" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -888,7 +909,7 @@
           <div class="leading-normal text-base">U.S. Navy veteran, investment banker, and supply chain strategist. Founder of Maritime Protective Services. As Head of Commercial for CCG Trading, led the company's Defense Production Act engagement during COVID-19, securing federal investment to expand domestic nitrile glove production. Advises on national security manufacturing and public-private partnerships.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/hope_sullivan.jpg" alt="Hope Sullivan" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -899,7 +920,7 @@
           <div class="leading-normal text-base">DC-based attorney and global advocate for sustainable investment. Has helped secure over $300B in grants and sovereign debt relief through strategic partnerships. President &amp; CEO of the Leon H. Sullivan Foundation, organizing the Sullivan Summits and leading anti-corruption and poverty alleviation efforts across Africa.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/jimmy_milliron.jpg" alt="Jimmy Milliron" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -910,7 +931,7 @@
           <div class="leading-normal text-base">Co-Founder and President of National Brokerage Atlantic, advising U.S. and international clientele on Wealth Enhancement, Estate Planning, and Asset Protection. Insurance veteran with multi-channel distribution expertise across family offices, law firms, and accounting firms. Built NexTier Bank's collateralized premium finance lending program to a $400MM+ portfolio.</div>
         </div>
 
-        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in">
+        <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white font-cmr text-left break-inside-avoid card-lift fade-in lf-extra">
           <div class="flex items-center mb-3">
             <img src="photos/gurjot_batra.jpg" alt="Gurjot Batra" class="w-12 h-12 rounded-full object-cover object-top border border-gray-200 mr-3 flex-shrink-0" />
             <div class="flex flex-col">
@@ -921,6 +942,10 @@
           <div class="leading-normal text-base">President of Trinity Printing Machinery, a trusted name in the global printing industry. Bridges international markets through a wide network of partners across the U.S. and India. Active in business ventures spanning entertainment, media, and cross-border opportunities. Based in Tampa, Florida.</div>
         </div>
 
+      </div>
+
+      <div class="lf-toggle-wrap fade-in">
+        <button class="lf-toggle" id="lf-toggle-btn" onclick="toggleLifeForce()">View full alliance &rarr;</button>
       </div>
     </div>
 
@@ -938,7 +963,7 @@
           />
           <p class="font-bold text-lg mb-1 text-center">Eli Morin</p>
           <p class="text-[#012169] text-sm font-medium mb-4 text-center">Principal</p>
-          <p class="text-base leading-relaxed text-gray-800">Eli is a Founding Member of <strong>Otter.ai</strong> — the AI Notetaker that has processed over 1 billion meetings for 35+ million users worldwide. With more than a decade building venture-backed AI platforms — some later integrated into Google, Amazon, Snap, and Alibaba — he applies that pattern recognition to the federal market at American AI.</p>
+          <p class="text-base leading-relaxed text-gray-800">Eli is a Founding Member of <strong><a href="https://otter.ai" target="_blank" rel="noopener noreferrer" class="text-[#012169] hover:underline">Otter.ai</a></strong> — the AI Notetaker that turns talk into action. With over 1 billion meetings processed for 35+ million users worldwide, and more than a decade building venture-backed AI platforms — some later integrated into Google, Amazon, Snap, and Alibaba — Eli applies that pattern recognition to the federal market at American AI.</p>
           <p class="mt-4"><a href="https://www.linkedin.com/in/elimorin/" target="_blank" rel="noopener noreferrer" class="text-[#012169] text-sm hover:underline">LinkedIn →</a> &nbsp;·&nbsp; <a href="https://x.com/elimorin" target="_blank" rel="noopener noreferrer" class="text-[#012169] text-sm hover:underline">X →</a></p>
         </div>
 
@@ -1046,6 +1071,14 @@
   <!-- ── SCRIPTS ── -->
   <script>
     // ── FAQ Accordion ──
+    function toggleLifeForce() {
+      const grid = document.querySelector('#network .masonry');
+      const btn = document.getElementById('lf-toggle-btn');
+      if (!grid || !btn) return;
+      const expanded = grid.classList.toggle('lf-show');
+      btn.innerHTML = expanded ? 'Show fewer &uarr;' : 'View full alliance &rarr;';
+    }
+
     function toggleFaq(btn) {
       const item = btn.closest('.faq-item');
       const body = item.querySelector('.faq-body');
